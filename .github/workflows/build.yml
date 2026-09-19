@@ -29,7 +29,7 @@ jobs:
 
     # 4. Compile the source and generate the fat JAR
     - name: Build Fat JAR with Gradle
-      run: ./gradlew build fatjar
+      run: ./gradlew build jar
 
     # 5. Upload the compiled JAR as a reusable GitHub artifact
     - name: Upload Build Artifact
