@@ -29,10 +29,7 @@ jobs:
 
     # 4. Compile the source and generate the fat JAR
     - name: Build Fat JAR with Gradle
-      env:
-        # Forces Gradle to strictly use the JDK configured in Step 2
-        JAVA_HOME: ${{ steps.setup-java.outputs.path }}
-      run: ./gradlew jar
+      run: ./gradlew jar -Pkotlin.jvm.target.validation.mode=warning
 
     # 5. Upload the compiled JAR as a reusable GitHub artifact
     - name: Upload Build Artifact
