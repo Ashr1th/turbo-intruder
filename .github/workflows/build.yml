@@ -14,6 +14,8 @@ jobs:
     # 1. Check out the repository code
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Disables shallow clone to fetch all history and commits
 
     # 2. Set up Java JDK 11 (required for compilation)
     - name: Set up JDK 11
