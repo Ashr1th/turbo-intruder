@@ -22,11 +22,15 @@ jobs:
         java-version: '23'
         distribution: 'temurin'
         cache: 'gradle'
+          
+    # 2.5. Grant execute permission to the Gradle wrapper
+    - name: Git checkout before MCP
+      run: git checkout 7605e52bb80bc7ff19ea046996a7777cab7bb6d3
 
     # 3. Grant execute permission to the Gradle wrapper
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-
+    
     # 4. Compile the source and generate the fat JAR
     - name: Build Fat JAR with Gradle
       run: ./gradlew jar -Pkotlin.jvm.target.validation.mode=warning
